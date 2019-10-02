@@ -24,6 +24,13 @@
         "command": "extension.elixirJumpToTest",
         "title": "Elixir: Jump to test"
       }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.elixirJumpToTest",
+        "key": "ctrl+shift+j",
+        "mac": "cmd+shift+j"
+      }
     ]
   },
   "scripts": {
