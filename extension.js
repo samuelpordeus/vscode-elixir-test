@@ -34,6 +34,11 @@ function activate(context) {
       }
 
       vscode.workspace.findFiles(fileToOpen, "**/.elixir_ls/**").then(files => {
+        
+        if(!files.length){
+          return vscode.window.showInformationMessage(`There isn't a test file matching "${fileName}.ex"`);
+        }
+        
         vscode.workspace
           .openTextDocument(vscode.Uri.file(files[0].fsPath))
           .then(vscode.window.showTextDocument);
