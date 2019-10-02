@@ -8,6 +8,8 @@ No more Cmd + P for us!
 
 ## Features
 
+The default keybinding is `Cmd + Shift + J`
+
 ![Jump to file](https://media.giphy.com/media/f9wtwt30UPppugue1F/giphy.gif)
 
 ## Known Issues

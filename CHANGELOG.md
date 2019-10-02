@@ -4,3 +4,4 @@
 - Initial release
 
 ## [Unreleased]
+- Add cmd + shift + j as keybinding
