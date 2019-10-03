@@ -1,11 +1,11 @@
 # Change Log
 
 ## [Unreleased]
-- Create test file when it does not exist
-- Run all tests in current file
 
 ## [1.0.0] - 2019-10-03
 - Update extension into `elixir-test`
+- Create test file when it does not exist
+- Run all tests in current file
 
 ## [0.2.0] - 2019-10-03
 - Add cmd + shift + j as keybinding
