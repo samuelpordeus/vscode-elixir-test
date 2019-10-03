@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 - Run test suite
+- Add command to run test at cursor
 
 ## [1.1.0] - 2019-10-03
 - Run all tests in current file
