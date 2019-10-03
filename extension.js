@@ -107,7 +107,7 @@ function activate(context) {
         terminal.sendText(`mix test ${openedFilename.match(testPathFilter)[1]}`)
         terminal.show()
       } else {
-        vscode.window.showInformationMessage(`the current file is not a test file`);
+        vscode.window.showInformationMessage(`The current file is not a test file.`);
       }
     }
   );
