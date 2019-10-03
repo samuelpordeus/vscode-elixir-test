@@ -20,6 +20,9 @@ The default keybinding is `Cmd + Shift + J`
 * Run the whole test suite
 
 ## Release Notes
+### 1.0.0
+* Production ready :joy:
+
 ### 0.2.0
 
 * Add cmd + shift + j as keybinding
