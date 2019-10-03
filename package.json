@@ -29,6 +29,10 @@
       {
         "command": "extension.elixirRunTestFile",
         "title": "Elixir test: Run all tests on file"
+      },
+      {
+        "command": "extension.elixirRunTestSuite",
+        "title": "Elixir test: Run test suite"
       }
     ],
     "keybindings": [
