@@ -1,13 +1,13 @@
 {
-  "name": "elixir-jump-to-test",
+  "name": "elixir-test",
   "publisher": "samuel-pordeus",
   "repository": {
     "type": "git",
-    "url": "https://github.com/samuelpordeus/elixir-jump-to-test"
+    "url": "https://github.com/samuelpordeus/elixir-test"
   },
-  "displayName": "Elixir Jump to Test",
-  "description": "Navigate between Elixir files and its tests (works with Phoenix)",
-  "version": "0.2.0",
+  "displayName": "Elixir Test",
+  "description": "An extension with a few commands that helps you with your Elixir tests",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.38.0"
   },
@@ -22,7 +22,7 @@
     "commands": [
       {
         "command": "extension.elixirJumpToTest",
-        "title": "Elixir: Jump to test"
+        "title": "Elixir test: Jump"
       }
     ],
     "keybindings": [
