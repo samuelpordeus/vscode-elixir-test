@@ -2,8 +2,6 @@
 
 This is a simple extension that makes you able to navigate between your elixir file and its test.
 
-It works as a charm with Phoenix Framework, but it wasn't tested with umbrella apps :thinking:
-
 No more Cmd + P for us!
 
 ## Features
