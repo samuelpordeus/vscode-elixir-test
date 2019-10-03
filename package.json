@@ -19,7 +19,6 @@
     "onCommand:extension.elixirJumpToTest",
     "onCommand:extension.elixirRunTestFile",
     "onCommand:extension.elixirRunTestSuite"
-    
   ],
   "main": "./extension.js",
   "contributes": {
