@@ -21,7 +21,8 @@ function activate(context) {
         return;
       }
 
-      const context = openedFile[2];
+      const context = openedFile[2] == '/lib/' ? '/test/' : openedFile[2].replace('/test/', '/lib/');
+
       const fileName = openedFile[3];
 
       const isTestFile = fileName.includes("_test");
