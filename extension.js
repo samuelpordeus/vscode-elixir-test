@@ -113,6 +113,17 @@ function activate(context) {
   );
 
   context.subscriptions.push(runTestsOnFile);
+
+  let runTestSuite = vscode.commands.registerCommand(
+    "extension.elixirRunTestSuite",
+    function() {
+      let terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
+      terminal.sendText(`mix test`);
+      terminal.show();
+    }
+  )
+
+  context.subscriptions.push(runTestSuite);
 }
 exports.activate = activate;
 
