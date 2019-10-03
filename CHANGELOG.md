@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2019-10-03
+
 - Run test suite
 - Add command to run test at cursor
 - Add module definition to generated test files

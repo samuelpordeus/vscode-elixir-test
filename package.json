@@ -8,7 +8,7 @@
   "displayName": "Elixir Test",
   "description": "An extension with a few commands that helps you with your Elixir tests",
   "icon": "icon.png",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "engines": {
     "vscode": "^1.38.0"
   },
@@ -26,19 +26,19 @@
     "commands": [
       {
         "command": "extension.elixirJumpToTest",
-        "title": "Elixir test: Jump"
+        "title": "Elixir Test: Jump"
       },
       {
         "command": "extension.elixirRunTestFile",
-        "title": "Elixir test: Run all tests on file"
+        "title": "Elixir Test: Run all tests on file"
       },
       {
         "command": "extension.elixirRunTestAtCursor",
-        "title": "Elixir test: Run test at cursor"
+        "title": "Elixir Test: Run test at cursor"
       },
       {
         "command": "extension.elixirRunTestSuite",
-        "title": "Elixir test: Run test suite"
+        "title": "Elixir Test: Run test suite"
       }
     ],
     "keybindings": [
