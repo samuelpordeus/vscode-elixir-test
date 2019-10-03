@@ -7,7 +7,7 @@
   },
   "displayName": "Elixir Jump to Test",
   "description": "Navigate between Elixir files and its tests (works with Phoenix)",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.38.0"
   },
