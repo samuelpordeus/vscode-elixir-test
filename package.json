@@ -3,12 +3,12 @@
   "publisher": "samuel-pordeus",
   "repository": {
     "type": "git",
-    "url": "https://github.com/samuelpordeus/elixir-test"
+    "url": "https://github.com/samuelpordeus/vscode-elixir-test"
   },
   "displayName": "Elixir Test",
   "description": "An extension with a few commands that helps you with your Elixir tests",
   "icon": "icon.png",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "engines": {
     "vscode": "^1.38.0"
   },
