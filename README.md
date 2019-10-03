@@ -13,10 +13,12 @@ The default keybinding is `Cmd + Shift + J`
 
 ![Jump to file](https://media.giphy.com/media/f9wtwt30UPppugue1F/giphy.gif)
 
+### Elixir Test: Run tests on file
+This runs all tests in the currently open file.
+
 ## Planned features
 
 * Run test that the cursor is currently on
-* Run all tests on the currently opened file
 * Run the whole test suite
 
 ## Release Notes
