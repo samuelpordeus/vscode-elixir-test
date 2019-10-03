@@ -102,10 +102,10 @@ function activate(context) {
       const isUmbrella = openedFilename.includes("/apps/");
 
       if (isTestFile === true) {
-        const testPathFilter = isUmbrella ? /.*\/(apps\/.*)$/ : /.*\/(test\/.*)$/
-        let terminal = vscode.window.createTerminal()
-        terminal.sendText(`mix test ${openedFilename.match(testPathFilter)[1]}`)
-        terminal.show()
+        const testPathFilter = isUmbrella ? /.*\/(apps\/.*)$/ : /.*\/(test\/.*)$/;
+        let terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
+        terminal.sendText(`mix test ${openedFilename.match(testPathFilter)[1]}`);
+        terminal.show();
       } else {
         vscode.window.showInformationMessage(`The current file is not a test file.`);
       }
