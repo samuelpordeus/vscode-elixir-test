@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 - Run test suite
+- Add command to run test at cursor
 
 ## [1.1.1] - 2019-10-03
 

@@ -18,7 +18,8 @@
   "activationEvents": [
     "onCommand:extension.elixirJumpToTest",
     "onCommand:extension.elixirRunTestFile",
-    "onCommand:extension.elixirRunTestSuite"
+    "onCommand:extension.elixirRunTestSuite",
+    "onCommand:extension.elixirRunTestAtCursor"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -30,6 +31,10 @@
       {
         "command": "extension.elixirRunTestFile",
         "title": "Elixir test: Run all tests on file"
+      },
+      {
+        "command": "extension.elixirRunTestAtCursor",
+        "title": "Elixir test: Run test at cursor"
       },
       {
         "command": "extension.elixirRunTestSuite",
