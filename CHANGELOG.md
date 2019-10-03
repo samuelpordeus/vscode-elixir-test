@@ -4,6 +4,7 @@
 
 - Run test suite
 - Add command to run test at cursor
+- Add module definition to generated test files
 
 ## [1.1.1] - 2019-10-03
 
