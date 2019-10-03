@@ -16,7 +16,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.elixirJumpToTest"
+    "onCommand:extension.elixirJumpToTest",
+    "onCommand:extension.elixirRunTestFile"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -24,6 +25,10 @@
       {
         "command": "extension.elixirJumpToTest",
         "title": "Elixir test: Jump"
+      },
+      {
+        "command": "extension.elixirRunTestFile",
+        "title": "Elixir test: run all tests on file"
       }
     ],
     "keybindings": [

@@ -87,6 +87,32 @@ function activate(context) {
   );
 
   context.subscriptions.push(disposable);
+
+  let runTestsOnFile = vscode.commands.registerCommand(
+    "extension.elixirRunTestFile",
+    function() {
+      const activeFile = vscode.window.activeTextEditor;
+      if (!activeFile) {
+        return;
+      }
+
+      const openedFilename = activeFile.document.fileName;
+
+      const isTestFile = openedFilename.includes("_test.exs");
+      const isUmbrella = openedFilename.includes("/apps/");
+
+      if (isTestFile === true) {
+        const testPathFilter = isUmbrella ? /.*\/(apps\/.*)$/ : /.*\/(test\/.*)$/
+        let terminal = vscode.window.createTerminal()
+        terminal.sendText(`mix test ${openedFilename.match(testPathFilter)[1]}`)
+        terminal.show()
+      } else {
+        vscode.window.showInformationMessage(`the current file is not a test file`);
+      }
+    }
+  );
+
+  context.subscriptions.push(runTestsOnFile);
 }
 exports.activate = activate;
 
