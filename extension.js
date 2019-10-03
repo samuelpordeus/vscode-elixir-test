@@ -13,15 +13,28 @@ function showConfirmationDialog(text, button) {
   return vscode.window.showWarningMessage(text, { modal: true }, button);
 }
 
-function createNewTestFile(dir, file) {
+async function getModuleName(uriFile) {
+  const content = (await vscode.workspace.fs.readFile(uriFile)).toString();
+  const moduleDefinition = content.match(/defmodule (.*) do/);
+
+  return moduleDefinition[1];
+}
+
+async function createNewTestFile(dir, file) {
   const uriDir = vscode.Uri.file(dir);
   const uriFile = vscode.Uri.file(`${dir}${file}`);
+  const ws = new vscode.WorkspaceEdit();
 
-  return vscode.workspace.fs.createDirectory(uriDir).then(() => {
-    let ws = new vscode.WorkspaceEdit();
-    ws.createFile(uriFile);
-    return vscode.workspace.applyEdit(ws);
-  });
+  const originalFile = vscode.window.activeTextEditor.document.fileName;
+  const originalFileUri = vscode.Uri.file(originalFile);
+  const moduleName = await getModuleName(originalFileUri);
+
+  await vscode.workspace.fs.createDirectory(uriDir);
+
+  ws.createFile(uriFile);
+  ws.insert(uriFile, new vscode.Position(0, 0), `defmodule ${moduleName}Test do\nend`);
+
+  await vscode.workspace.applyEdit(ws);
 }
 
 function askToCreateANewFile(dir, file) {
