@@ -3,30 +3,33 @@
 
 A Visual Studio Code extension that helps you with your tests in Elixir!
 
+## Installation
+
+You can install it through the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=samuel-pordeus.elixir-test).
+
 ## Features
 
-- Elixir Test: Jump
-
-  This enables you to navigate back and forth between your elixir file and its test.
-
-  No more Cmd + P for us!
-
-  The default keybinding is `Cmd + Shift + J`
-
-  ![Jump to file](https://media.giphy.com/media/f9wtwt30UPppugue1F/giphy.gif)
-
-- Elixir Test: Run all tests on file
-
-- Elixir Test: Run test at cursor
-
-- Elixir Test: Run test suite
+### Elixir Test: Jump
 
 This enables you to navigate back and forth between your elixir file and its test.
 
-No more Cmd + P for us!
-
 The default keybinding is `Cmd + Shift + J`
 
-## Planned features
+![Jump](https://media.giphy.com/media/JOFKl3KctzbrXYReLj/giphy.gif)
 
-- Nothing for now :sweat_smile:
+### Elixir Test: Run all tests on file
+
+![Run all tests on file](https://media.giphy.com/media/lr81HlKkF60BoMnlvU/giphy.gif)
+
+### Elixir Test: Run test at cursor
+
+This one does the same as above, but for a single test.
+
+### Elixir Test: Run test suite
+
+This one does the same as above, but for the entire test suite.
+
+## Contributing
+
+Feel free to suggest some new features or report bugs [creating a new issue](https://github.com/samuelpordeus/vscode-elixir-test/issues/new).
+Or even better, you can open a pull request! :smile:
