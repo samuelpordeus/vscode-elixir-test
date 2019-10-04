@@ -27,10 +27,6 @@ No more Cmd + P for us!
 
 The default keybinding is `Cmd + Shift + J`
 
-### Elixir Test: Run tests on file
-
-This runs all tests in the currently open file.
-
 ## Planned features
 
 - Nothing for now :sweat_smile:
