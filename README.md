@@ -1,10 +1,11 @@
 # Elixir Test
+[![Build Status](https://travis-ci.org/samuelpordeus/vscode-elixir-test.svg?branch=master)](https://travis-ci.org/samuelpordeus/vscode-elixir-test)
 
 A Visual Studio Code extension that helps you with your tests in Elixir!
 
 ## Features
 
-- #### Elixir Test: Jump
+- Elixir Test: Jump
 
   This enables you to navigate back and forth between your elixir file and its test.
 
