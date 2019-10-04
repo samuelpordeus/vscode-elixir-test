@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+- Add Keybindings to run test commands
 
 ## [1.2.0] - 2019-10-03
 
