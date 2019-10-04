@@ -19,15 +19,21 @@ The default keybinding is `Cmd + Shift + J` (macOS) and `Ctrl + Shift + J` (Linu
 
 ### Elixir Test: Run all tests on file
 
+The default keybinding is `Cmd + Shift + K, F` (macOS) and `Ctrl + Shift + K, F` (Linux/Windows)
+
 ![Run all tests on file](https://media.giphy.com/media/lr81HlKkF60BoMnlvU/giphy.gif)
 
 ### Elixir Test: Run test at cursor
 
 This one does the same as above, but for a single test.
 
+The default keybinding is `Cmd + Shift + K, C` (macOS) and `Ctrl + Shift + K, C` (Linux/Windows)
+
 ### Elixir Test: Run test suite
 
 This one does the same as above, but for the entire test suite.
+
+The default keybinding is `Cmd + Shift + K, S` (macOS) and `Ctrl + Shift + K, S` (Linux/Windows)
 
 ## Contributing
 
