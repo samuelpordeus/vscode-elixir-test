@@ -23,11 +23,10 @@ function handler() {
   const fileName = openedFile[3];
   const isTestFile = fileName.includes("_test");
 
+  let fileToOpen = `**${context}${fileName}_test.exs`;
   if (isTestFile === true) {
     var strippedFileName = fileName.replace("_test", "");
-    var fileToOpen = `**${context}${strippedFileName}.ex`;
-  } else {
-    var fileToOpen = `**${context}${fileName}_test.exs`;
+    fileToOpen = `**${context}${strippedFileName}.ex`;
   }
 
   vscode.workspace.findFiles(fileToOpen, "**/.elixir_ls/**").then(files => {
