@@ -50,6 +50,7 @@
     ]
   },
   "scripts": {
+    "lint": "eslint \"./src/**/*.js\"",
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
@@ -62,5 +63,8 @@
     "mocha": "^6.1.4",
     "typescript": "^3.3.1",
     "vscode-test": "^1.2.0"
+  },
+  "dependencies": {
+    "vsce": "^1.67.1"
   }
 }
