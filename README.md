@@ -13,7 +13,7 @@ You can install it through the [Visual Studio Code Marketplace](https://marketpl
 
 This enables you to navigate back and forth between your elixir file and its test.
 
-The default keybinding is `Cmd + Shift + J`
+The default keybinding is `Cmd + Shift + J` (macOS) and `Ctrl + Shift + J` (Linux/Windows)
 
 ![Jump](https://media.giphy.com/media/JOFKl3KctzbrXYReLj/giphy.gif)
 
