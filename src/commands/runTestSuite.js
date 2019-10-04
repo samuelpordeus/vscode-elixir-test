@@ -1,12 +1,12 @@
-const vscode = require("vscode");
+const vscode = require('vscode');
 
 function handler() {
-  let terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
-  terminal.sendText(`mix test`);
+  const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
+  terminal.sendText('mix test');
   terminal.show();
 }
 
 module.exports = {
-  name: "extension.elixirRunTestSuite",
-  handler
+  name: 'extension.elixirRunTestSuite',
+  handler,
 };

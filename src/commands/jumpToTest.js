@@ -1,70 +1,20 @@
-const vscode = require("vscode");
+const vscode = require('vscode');
 
-function handler() {
-  const activeFile = vscode.window.activeTextEditor;
-
-  if (!activeFile) {
-    return;
-  }
-
-  const openedFilename = activeFile.document.fileName;
-  const isCodeFile = /(.*(\/.*\/))(.*)(\.\w+)$/;
-  const openedFile = openedFilename.match(isCodeFile);
-
-  if (!openedFile) {
-    return;
-  }
-
-  const fullDir = openedFile[1];
-  const context =
-    openedFile[2] == "/lib/"
-      ? "/test/"
-      : openedFile[2].replace("/test/", "/lib/");
-  const fileName = openedFile[3];
-  const isTestFile = fileName.includes("_test");
-
-  let fileToOpen = `**${context}${fileName}_test.exs`;
-  if (isTestFile === true) {
-    var strippedFileName = fileName.replace("_test", "");
-    fileToOpen = `**${context}${strippedFileName}.ex`;
-  }
-
-  vscode.workspace.findFiles(fileToOpen, "**/.elixir_ls/**").then(files => {
-    if (!files.length) {
-      let dir = fullDir.replace("lib", "test");
-      let file = `${fileName}_test.exs`;
-
-      askToCreateANewFile(dir, file);
-    } else {
-      let file = files[0].fsPath;
-      openFile(file);
-    }
-  });
-}
-
-function askToCreateANewFile(dir, file) {
-  return showConfirmationDialog(
-    `Create the test file at ${dir}?`,
-    "Create"
-  ).then(answer => {
-    if (answer == "Create") {
-      createNewTestFile(dir, file).then(() => {
-        openFile(`${dir}${file}`);
-      });
-    } else {
-      return;
-    }
-  });
+function openFile(file) {
+  return vscode.workspace
+    .openTextDocument(vscode.Uri.file(file))
+    .then(vscode.window.showTextDocument);
 }
 
 function showConfirmationDialog(text, button) {
   return vscode.window.showWarningMessage(text, { modal: true }, button);
 }
 
-function openFile(file) {
-  return vscode.workspace
-    .openTextDocument(vscode.Uri.file(file))
-    .then(vscode.window.showTextDocument);
+async function getModuleName(uriFile) {
+  const content = (await vscode.workspace.fs.readFile(uriFile)).toString();
+  const moduleDefinition = content.match(/defmodule (.*) do/);
+
+  return moduleDefinition[1];
 }
 
 async function createNewTestFile(dir, file) {
@@ -82,20 +32,67 @@ async function createNewTestFile(dir, file) {
   ws.insert(
     uriFile,
     new vscode.Position(0, 0),
-    `defmodule ${moduleName}Test do\nend`
+    `defmodule ${moduleName}Test do\nend`,
   );
 
   await vscode.workspace.applyEdit(ws);
 }
 
-async function getModuleName(uriFile) {
-  const content = (await vscode.workspace.fs.readFile(uriFile)).toString();
-  const moduleDefinition = content.match(/defmodule (.*) do/);
+function askToCreateANewFile(dir, file) {
+  return showConfirmationDialog(
+    `Create the test file at ${dir}?`,
+    'Create',
+  ).then((answer) => {
+    if (answer === 'Create') {
+      createNewTestFile(dir, file).then(() => {
+        openFile(`${dir}${file}`);
+      });
+    }
+  });
+}
 
-  return moduleDefinition[1];
+function handler() {
+  const activeFile = vscode.window.activeTextEditor;
+
+  if (!activeFile) {
+    return;
+  }
+
+  const openedFilename = activeFile.document.fileName;
+  const isCodeFile = /(.*(\/.*\/))(.*)(\.\w+)$/;
+  const openedFile = openedFilename.match(isCodeFile);
+
+  if (!openedFile) {
+    return;
+  }
+
+  const fullDir = openedFile[1];
+  const context = openedFile[2] === '/lib/'
+    ? '/test/'
+    : openedFile[2].replace('/test/', '/lib/');
+  const fileName = openedFile[3];
+  const isTestFile = fileName.includes('_test');
+
+  let fileToOpen = `**${context}${fileName}_test.exs`;
+  if (isTestFile === true) {
+    const strippedFileName = fileName.replace('_test', '');
+    fileToOpen = `**${context}${strippedFileName}.ex`;
+  }
+
+  vscode.workspace.findFiles(fileToOpen, '**/.elixir_ls/**').then((files) => {
+    if (!files.length) {
+      const dir = fullDir.replace('lib', 'test');
+      const file = `${fileName}_test.exs`;
+
+      askToCreateANewFile(dir, file);
+    } else {
+      const file = files[0].fsPath;
+      openFile(file);
+    }
+  });
 }
 
 module.exports = {
-  name: "extension.elixirJumpToTest",
-  handler
+  name: 'extension.elixirJumpToTest',
+  handler,
 };
