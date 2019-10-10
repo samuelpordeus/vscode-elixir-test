@@ -45,22 +45,26 @@
       {
         "command": "extension.elixirJumpToTest",
         "key": "ctrl+shift+j",
-        "mac": "cmd+shift+j"
+        "mac": "cmd+shift+j",
+        "when": "editorTextFocus && editorLangId == 'elixir'"
       },
       {
         "command": "extension.elixirRunTestAtCursor",
         "key": "ctrl+shift+k c",
-        "mac": "cmd+shift+k c"
+        "mac": "cmd+shift+k c",
+        "when": "editorTextFocus && editorLangId == 'elixir'"
       },
       {
         "command": "extension.elixirRunTestFile",
         "key": "ctrl+shift+k f",
-        "mac": "cmd+shift+k f"
+        "mac": "cmd+shift+k f",
+        "when": "editorTextFocus && editorLangId == 'elixir'"
       },
       {
         "command": "extension.elixirRunTestSuite",
         "key": "ctrl+shift+k s",
-        "mac": "cmd+shift+k s"
+        "mac": "cmd+shift+k s",
+        "when": "editorTextFocus && editorLangId == 'elixir'"
       }
     ]
   },
