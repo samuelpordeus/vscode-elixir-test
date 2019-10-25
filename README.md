@@ -29,6 +29,14 @@ This one does the same as above, but for a single test.
 
 The default keybinding is `Cmd + Shift + K, C` (macOS) and `Ctrl + Shift + K, C` (Linux/Windows)
 
+### Elixir Test: Run all tests in a folder
+
+This one does the same as above, but for all tests within a folder.
+
+The default keybinding is `Cmd + Shift + K, D` (macOS) and `Ctrl + Shift + K, D` (Linux/Windows)
+
+Alternatively, right-click the folder in the Explorer and select `Elixir Test: Run all tests in a folder`.
+
 ### Elixir Test: Run test suite
 
 This one does the same as above, but for the entire test suite.
