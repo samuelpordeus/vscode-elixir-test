@@ -18,6 +18,7 @@
   "activationEvents": [
     "onCommand:extension.elixirJumpToTest",
     "onCommand:extension.elixirRunTestFile",
+    "onCommand:extension.elixirRunTestFolder",
     "onCommand:extension.elixirRunTestSuite",
     "onCommand:extension.elixirRunTestAtCursor"
   ],
@@ -33,6 +34,10 @@
         "title": "Elixir Test: Run all tests on file"
       },
       {
+        "command": "extension.elixirRunTestFolder",
+        "title": "Elixir Test: Run all tests in a folder"
+      },
+      {
         "command": "extension.elixirRunTestAtCursor",
         "title": "Elixir Test: Run test at cursor"
       },
@@ -41,6 +46,15 @@
         "title": "Elixir Test: Run test suite"
       }
     ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "extension.elixirRunTestFolder",
+          "group": "elixirTest"
+        }
+      ]
+    },
     "keybindings": [
       {
         "command": "extension.elixirJumpToTest",
@@ -59,6 +73,11 @@
         "key": "ctrl+shift+k f",
         "mac": "cmd+shift+k f",
         "when": "editorTextFocus && editorLangId == 'elixir'"
+      },
+      {
+        "command": "extension.elixirRunTestFolder",
+        "key": "ctrl+shift+k d",
+        "mac": "cmd+shift+k d"
       },
       {
         "command": "extension.elixirRunTestSuite",
