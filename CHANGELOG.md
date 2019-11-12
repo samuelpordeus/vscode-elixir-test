@@ -1,7 +1,11 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.3.0] - 2019-11-12
 - Add Keybindings to run test commands
+- Add command to run all tests in folder
+- Add `when` on keybindings
 
 ## [1.2.0] - 2019-10-03
 
