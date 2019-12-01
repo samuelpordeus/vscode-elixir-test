@@ -20,7 +20,7 @@ function handler() {
     const testPathFilter = isUmbrella ? /.*\/(apps\/.*)$/ : /.*\/(test\/.*)$/;
     const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
     terminal.sendText(
-      `mix test ${openedFilename.match(testPathFilter)[1]}:${cursorLine}`,
+      `mix test ${openedFilename.match(testPathFilter)[1]}: ${cursorLine}`,
     );
     terminal.show();
   } else {
