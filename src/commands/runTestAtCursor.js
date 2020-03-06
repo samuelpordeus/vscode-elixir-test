@@ -16,13 +16,15 @@ function handler() {
   const isTestFile = openedFilename.includes('_test.exs');
   const isUmbrella = openedFilename.includes('/apps/');
 
+  const config = vscode.workspace.getConfiguration("vscode-elixir-test");
+
   if (isTestFile === true) {
     const testPathFilter = isUmbrella ? /.*\/(apps\/.*)$/ : /.*\/(test\/.*)$/;
     const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
     terminal.sendText(
       `mix test ${openedFilename.match(testPathFilter)[1]}:${cursorLine}`,
     );
-    terminal.show();
+    if (config.focusOnTerminalAfterTest) terminal.show();
   } else {
     vscode.window.showInformationMessage(
       'The current file is not a test file.',
