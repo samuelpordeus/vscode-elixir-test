@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 
-const config = vscode.workspace.getConfiguration("vscode-elixir-test");
+const config = vscode.workspace.getConfiguration('vscode-elixir-test');
 
 function handler() {
   const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();

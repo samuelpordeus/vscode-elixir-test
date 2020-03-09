@@ -20,7 +20,7 @@ function handler(folderUri) {
   const isTestFolder = selectedFolder.includes('/test/');
   const isUmbrella = selectedFolder.includes('/apps/');
 
-  const config = vscode.workspace.getConfiguration("vscode-elixir-test");
+  const config = vscode.workspace.getConfiguration('vscode-elixir-test');
 
   if (isTestFolder === true) {
     const testPathFilter = isUmbrella ? /.*\/(apps\/.*)$/ : /.*\/(test\/.*)$/;

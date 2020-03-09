@@ -11,7 +11,7 @@ function handler() {
   const isTestFile = openedFilename.includes('_test.exs');
   const isUmbrella = openedFilename.includes('/apps/');
 
-  const config = vscode.workspace.getConfiguration("vscode-elixir-test");
+  const config = vscode.workspace.getConfiguration('vscode-elixir-test');
 
   if (isTestFile === true) {
     const testPathFilter = isUmbrella ? /.*\/(apps\/.*)$/ : /.*\/(test\/.*)$/;
