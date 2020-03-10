@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [1.4.0] - 2020-03-10
+- Add configuration to focus on editor after running tests
+
 ## [1.3.0] - 2019-11-12
 - Add Keybindings to run test commands
 - Add command to run all tests in folder
