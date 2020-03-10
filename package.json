@@ -85,7 +85,18 @@
         "mac": "cmd+shift+k s",
         "when": "editorTextFocus && editorLangId == 'elixir'"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "vscode-elixir-test",
+      "type": "object",
+      "properties": {
+        "vscode-elixir-test.focusOnTerminalAfterTest": {
+          "type": "boolean",
+          "default": true,
+          "description": "Get focus on terminal panel after test"
+        }
+      }
+    }
   },
   "scripts": {
     "lint": "eslint \"./src/**/*.js\"",
