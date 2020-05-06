@@ -32,7 +32,7 @@ async function createNewTestFile(dir, file) {
   ws.insert(
     uriFile,
     new vscode.Position(0, 0),
-    `defmodule ${moduleName}Test do\nend`,
+    `defmodule ${moduleName}Test do\n\tuse ExUnit.Case\n\tdoctest ${moduleName}\n\talias ${moduleName}\n\nend`
   );
 
   await vscode.workspace.applyEdit(ws);
