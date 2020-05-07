@@ -29,17 +29,10 @@ async function createNewTestFile(dir, file) {
   await vscode.workspace.fs.createDirectory(uriDir);
 
   ws.createFile(uriFile);
-
-  let docTest = '';
-  const answer = await showConfirmationDialog('Use doctest?', 'Add Doctest');
-  if (answer === 'Add Doctest') {
-    docTest = `\tdoctest ${moduleName}\n`;
-  }
-
   ws.insert(
     uriFile,
     new vscode.Position(0, 0),
-    `defmodule ${moduleName}Test do\n\tuse ExUnit.Case\n${docTest}\talias ${moduleName}\n\nend`,
+    `defmodule ${moduleName}Test do\n\tuse ExUnit.Case\n\tdoctest ${moduleName}\n\talias ${moduleName}\n\nend`,
   );
 
   await vscode.workspace.applyEdit(ws);
