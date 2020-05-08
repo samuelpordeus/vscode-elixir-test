@@ -99,7 +99,7 @@
     }
   },
   "scripts": {
-    "lint": "eslint \"./src/**/*.js\"",
+    "lint": "npx eslint \"./src/**/*.js\"",
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
