@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+- Improve template on new test file
 
 ## [1.4.0] - 2020-03-10
 - Add configuration to focus on editor after running tests
