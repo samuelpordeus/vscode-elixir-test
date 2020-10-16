@@ -59,32 +59,32 @@ function handler() {
   }
 
   const openedFilename = activeFile.document.fileName;
-  const isCodeFile = /(.*(\/.*\/))(.*)(\.\w+)$/;
+  const isCodeFile = /(.*\/)(test|lib)(.*\/)(.*)(\.\w+)$/;
   const openedFile = openedFilename.match(isCodeFile);
 
   if (!openedFile) {
     return;
   }
 
-  const fullDir = openedFile[1];
-  const context = openedFile[2] === '/lib/'
-    ? '/test/'
-    : openedFile[2].replace('/test/', '/lib/');
-  const fileName = openedFile[3];
-  const isTestFile = fileName.includes('_test');
+  const startDir = openedFile[1]
+  const testOrLib = openedFile[2]
+  const postDir = openedFile[3]
+  const fileName = openedFile[4]
+  const replacedLibOrTest = testOrLib === 'lib' ? 'test': 'lib';
 
-  let fileToOpen = `**${context}${fileName}_test.exs`;
-  if (isTestFile === true) {
+  if (fileName.includes('_test')) {
     const strippedFileName = fileName.replace('_test', '');
-    fileToOpen = `**${context}${strippedFileName}.ex`;
+    newFilename = `${strippedFileName}.ex`;
   }
+  else{
+    newFilename = `${fileName}_test.exs`
+  }
+
+  const fileToOpen = vscode.workspace.asRelativePath(startDir+replacedLibOrTest+postDir+newFilename)
 
   vscode.workspace.findFiles(fileToOpen, '**/.elixir_ls/**').then((files) => {
     if (!files.length) {
-      const dir = fullDir.replace('lib', 'test');
-      const file = `${fileName}_test.exs`;
-
-      askToCreateANewFile(dir, file);
+      askToCreateANewFile(startDir+replacedLibOrTest+postDir, newFilename);
     } else {
       const file = files[0].fsPath;
       openFile(file);
