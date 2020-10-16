@@ -1,7 +1,10 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.5.0] - 2020-10-16
 - Improve template on new test file
+- Improve test jump structure
 
 ## [1.4.0] - 2020-03-10
 - Add configuration to focus on editor after running tests
