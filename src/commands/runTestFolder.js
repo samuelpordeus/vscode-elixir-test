@@ -1,5 +1,6 @@
 const vscode = require('vscode');
 const path = require('path');
+const validations = require('../helpers/validations');
 
 function handler(folderUri) {
   let selectedFolder;
@@ -17,13 +18,14 @@ function handler(folderUri) {
 
   selectedFolder += selectedFolder.endsWith('/') ? '' : '/';
 
-  const isTestFolder = selectedFolder.includes('/test/');
-  const isUmbrella = selectedFolder.includes('/apps/');
+  const isWindows = validations.isWindows(selectedFolder);
+  const isTestFolder = validations.isTestFolder(selectedFolder);
+  const isUmbrella = validations.isUmbrella(selectedFolder);
 
   const config = vscode.workspace.getConfiguration('vscode-elixir-test');
 
   if (isTestFolder === true) {
-    const testPathFilter = isUmbrella ? /.*\/(apps\/.*)$/ : /.*\/(test\/.*)$/;
+    const testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
     const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
     terminal.sendText(`mix test ${selectedFolder.match(testPathFilter)[1]}`);
     if (config.focusOnTerminalAfterTest) terminal.show();

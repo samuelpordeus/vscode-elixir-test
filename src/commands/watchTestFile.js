@@ -1,4 +1,5 @@
 const vscode = require('vscode');
+const validations = require('../helpers/validations');
 
 function handler() {
   const activeFile = vscode.window.activeTextEditor;
@@ -8,13 +9,14 @@ function handler() {
 
   const openedFilename = activeFile.document.fileName;
 
-  const isTestFile = openedFilename.includes('_test.exs');
-  const isUmbrella = openedFilename.includes('/apps/');
+  const isWindows = validations.isWindows(openedFilename);
+  const isTestFile = validations.isTestFile(openedFilename);
+  const isUmbrella = validations.isUmbrella(openedFilename);
 
   const config = vscode.workspace.getConfiguration('vscode-elixir-test');
 
   if (isTestFile === true) {
-    const testPathFilter = isUmbrella ? /.*\/(apps\/.*)$/ : /.*\/(test\/.*)$/;
+    let testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
     const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
     terminal.sendText(`mix test.watch ${openedFilename.match(testPathFilter)[1]}`);
     if (config.focusOnTerminalAfterTest) terminal.show();
