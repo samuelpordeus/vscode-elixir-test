@@ -16,7 +16,7 @@ function handler() {
   const config = vscode.workspace.getConfiguration('vscode-elixir-test');
 
   if (isTestFile === true) {
-    let testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
+    const testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
     const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
     terminal.sendText(`mix test.watch ${openedFilename.match(testPathFilter)[1]}`);
     if (config.focusOnTerminalAfterTest) terminal.show();
