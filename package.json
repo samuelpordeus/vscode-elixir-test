@@ -8,7 +8,7 @@
   "displayName": "Elixir Test",
   "description": "An extension with a few commands that helps you with your Elixir tests",
   "icon": "icon.png",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "engines": {
     "vscode": "^1.38.0"
   },
