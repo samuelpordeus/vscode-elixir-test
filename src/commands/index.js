@@ -4,6 +4,9 @@ const runTestFile = require('./runTestFile');
 const runTestFolder = require('./runTestFolder');
 const runTestSuite = require('./runTestSuite');
 const watchTestFile = require('./watchTestFile');
+const watchTestFolder = require('./watchTestFolder');
+const watchTestAtCursor = require('./watchTestAtCursor');
+const watchTestSuite = require('./watchTestSuite');
 
 module.exports = [
   jumpToTest,
@@ -11,5 +14,8 @@ module.exports = [
   runTestFile,
   runTestFolder,
   runTestSuite,
-  watchTestFile
+  watchTestFile,
+  watchTestFolder,
+  watchTestAtCursor,
+  watchTestSuite,
 ];
