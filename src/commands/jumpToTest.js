@@ -1,4 +1,5 @@
 const vscode = require('vscode');
+const validations = require('../helpers/validations');
 
 function openFile(file) {
   return vscode.workspace
@@ -59,8 +60,7 @@ function handler() {
   }
 
   const openedFilename = activeFile.document.fileName;
-  const isCodeFile = /(.*\/)(test|lib)(.*\/)(.*)(\.\w+)$/;
-  const openedFile = openedFilename.match(isCodeFile);
+  const openedFile = validations.isCodeFile(openedFilename);
 
   if (!openedFile) {
     return;
