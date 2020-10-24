@@ -14,9 +14,9 @@ function handler() {
   */
   const cursorLine = activeFile.selection.active.line + 1;
 
-  const isWindows = validations.isWindows(selectedFolder);
-  const isTestFolder = validations.isTestFolder(selectedFolder);
-  const isUmbrella = validations.isUmbrella(selectedFolder);
+  const isWindows = validations.isWindows(openedFilename);
+  const isTestFile = validations.isTestFile(openedFilename);
+  const isUmbrella = validations.isUmbrella(openedFilename);
 
   const config = vscode.workspace.getConfiguration('vscode-elixir-test');
 
