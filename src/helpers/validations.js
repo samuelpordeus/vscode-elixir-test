@@ -2,6 +2,13 @@ function isWindows(openedFilename) {
   return openedFilename.includes('\\');
 }
 
+const isFolder = (openedFilename, folderName) => {
+  if (!isWindows(openedFilename)) {
+    return openedFilename.includes(`/${folderName}/`);
+  }
+  return openedFilename.includes(`\\${folderName}\\`);
+};
+
 function isTestFile(openedFilename) {
   return openedFilename.includes('_test.exs');
 }
@@ -14,20 +21,12 @@ function isTestFolder(openedFilename) {
   return isFolder(openedFilename, 'test');
 }
 
-function isFolder(openedFilename, folderName) {
-  if (!isWindows(openedFilename)) {
-    return openedFilename.includes(`/${folderName}/`);
-  } else {
-    return openedFilename.includes(`\\${folderName}\\`);
-  }
-}
 
-function getTestPathFilter(isUmbrella, isWindows) {
-  if (!isWindows) {
-    return isUmbrella ? /.*\/(apps\/.*)$/ : /.*\/(test\/.*)$/;
-  } else {
-    return isUmbrella ? /.*\\(apps\\.*)$/ : /.*\\(test\\.*)$/;
+function getTestPathFilter(checkIsUmbrella, checkIsWindows) {
+  if (!checkIsWindows) {
+    return checkIsUmbrella ? /.*\/(apps\/.*)$/ : /.*\/(test\/.*)$/;
   }
+  return checkIsUmbrella ? /.*\\(apps\\.*)$/ : /.*\\(test\\.*)$/;
 }
 
 module.exports = {
