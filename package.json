@@ -20,7 +20,8 @@
     "onCommand:extension.elixirRunTestFile",
     "onCommand:extension.elixirRunTestFolder",
     "onCommand:extension.elixirRunTestSuite",
-    "onCommand:extension.elixirRunTestAtCursor"
+    "onCommand:extension.elixirRunTestAtCursor",
+    "onCommand:extension.elixirWatchTestFile"
   ],
   "main": "./src/extension.js",
   "contributes": {
@@ -44,6 +45,10 @@
       {
         "command": "extension.elixirRunTestSuite",
         "title": "Elixir Test: Run test suite"
+      },
+      {
+        "command": "extension.elixirWatchTestFile",
+        "title": "Elixir Test: Watch all tests on file"
       }
     ],
     "menus": {
@@ -83,6 +88,12 @@
         "command": "extension.elixirRunTestSuite",
         "key": "ctrl+shift+k s",
         "mac": "cmd+shift+k s",
+        "when": "editorTextFocus && editorLangId == 'elixir'"
+      },
+      {
+        "command": "extension.elixirWatchTestFile",
+        "key": "ctrl+shift+k w",
+        "mac": "cmd+shift+k w",
         "when": "editorTextFocus && editorLangId == 'elixir'"
       }
     ],
