@@ -64,24 +64,24 @@
       },
       {
         "command": "extension.elixirRunTestAtCursor",
-        "key": "ctrl+shift+i c",
+        "key": "ctrl+shift+8 c",
         "mac": "cmd+shift+i c",
         "when": "editorTextFocus && editorLangId == 'elixir'"
       },
       {
         "command": "extension.elixirRunTestFile",
-        "key": "ctrl+shift+i f",
+        "key": "ctrl+shift+8 f",
         "mac": "cmd+shift+i f",
         "when": "editorTextFocus && editorLangId == 'elixir'"
       },
       {
         "command": "extension.elixirRunTestFolder",
-        "key": "ctrl+shift+i d",
+        "key": "ctrl+shift+8 d",
         "mac": "cmd+shift+i d"
       },
       {
         "command": "extension.elixirRunTestSuite",
-        "key": "ctrl+shift+i s",
+        "key": "ctrl+shift+8 s",
         "mac": "cmd+shift+i s",
         "when": "editorTextFocus && editorLangId == 'elixir'"
       }
