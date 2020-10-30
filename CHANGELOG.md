@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.6.0] = 2020-10-24
+- Fix command bugs for Windows users (path validation with `\\` instead of `/`)
+- Add all test commands with mix_test_watch library
+- Add validation helper to make it simple to maintain
+- Update README with Watch tests section
+
 ## [1.5.0] - 2020-10-16
 - Improve template on new test file
 - Improve test jump structure

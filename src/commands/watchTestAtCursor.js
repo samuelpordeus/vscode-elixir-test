@@ -8,6 +8,11 @@ function handler() {
   }
 
   const openedFilename = activeFile.document.fileName;
+  /*
+  We do a +1 here because the `line` returned is zero based.
+  Ref: https://code.visualstudio.com/api/references/vscode-api#Position
+  */
+  const cursorLine = activeFile.selection.active.line + 1;
 
   const isWindows = validations.isWindows(openedFilename);
   const isTestFile = validations.isTestFile(openedFilename);
@@ -18,7 +23,9 @@ function handler() {
   if (isTestFile === true) {
     const testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
     const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
-    terminal.sendText(`mix test ${openedFilename.match(testPathFilter)[1]}`);
+    terminal.sendText(
+      `mix test.watch ${openedFilename.match(testPathFilter)[1]}:${cursorLine}`,
+    );
     if (config.focusOnTerminalAfterTest) terminal.show();
   } else {
     vscode.window.showInformationMessage(
@@ -28,6 +35,6 @@ function handler() {
 }
 
 module.exports = {
-  name: 'extension.elixirRunTestFile',
+  name: 'extension.elixirWatchTestAtCursor',
   handler,
 };

@@ -18,7 +18,7 @@ function handler() {
   if (isTestFile === true) {
     const testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
     const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
-    terminal.sendText(`mix test ${openedFilename.match(testPathFilter)[1]}`);
+    terminal.sendText(`mix test.watch ${openedFilename.match(testPathFilter)[1]}`);
     if (config.focusOnTerminalAfterTest) terminal.show();
   } else {
     vscode.window.showInformationMessage(
@@ -28,6 +28,6 @@ function handler() {
 }
 
 module.exports = {
-  name: 'extension.elixirRunTestFile',
+  name: 'extension.elixirWatchTestFile',
   handler,
 };
