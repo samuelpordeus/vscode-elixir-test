@@ -19,7 +19,7 @@ The default keybinding is `Cmd + Shift + J` (macOS) and `Ctrl + Shift + J` (Linu
 
 ### Elixir Test: Run all tests on file
 
-The default keybinding is `Cmd + Shift + K, F` (macOS) and `Ctrl + Shift + K, F` (Linux/Windows)
+The default keybinding is `Cmd + Shift  + I, F` (macOS) and `Ctrl + Shift + 8, F` (Linux/Windows)
 
 ![Run all tests on file](https://media.giphy.com/media/lr81HlKkF60BoMnlvU/giphy.gif)
 
@@ -27,13 +27,13 @@ The default keybinding is `Cmd + Shift + K, F` (macOS) and `Ctrl + Shift + K, F`
 
 This one does the same as above, but for a single test.
 
-The default keybinding is `Cmd + Shift + K, C` (macOS) and `Ctrl + Shift + K, C` (Linux/Windows)
+The default keybinding is `Cmd + Shift  + I, C` (macOS) and `Ctrl + Shift + 8, C` (Linux/Windows)
 
 ### Elixir Test: Run all tests in a folder
 
 This one does the same as above, but for all tests within a folder.
 
-The default keybinding is `Cmd + Shift + K, D` (macOS) and `Ctrl + Shift + K, D` (Linux/Windows)
+The default keybinding is `Cmd + Shift  + I, D` (macOS) and `Ctrl + Shift + 8, D` (Linux/Windows)
 
 Alternatively, right-click the folder in the Explorer and select `Elixir Test: Run all tests in a folder`.
 
@@ -41,7 +41,7 @@ Alternatively, right-click the folder in the Explorer and select `Elixir Test: R
 
 This one does the same as above, but for the entire test suite.
 
-The default keybinding is `Cmd + Shift + K, S` (macOS) and `Ctrl + Shift + K, S` (Linux/Windows)
+The default keybinding is `Cmd + Shift  + I, S` (macOS) and `Ctrl + Shift + 8, S` (Linux/Windows)
 
 ### Watch tests
 
