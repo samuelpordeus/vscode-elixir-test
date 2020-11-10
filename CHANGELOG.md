@@ -1,13 +1,14 @@
 # Change Log
 
 ## [Unreleased]
+## [1.7.0] = 2020-11-07
+- Change shortcut for running tests to CMD+SHIFT+I to avoid conflict with default keybinding
 
 ## [1.6.0] = 2020-10-30
 - Fix command bugs for Windows users (path validation with `\\` instead of `/`)
 - Add all test commands with mix_test_watch library
 - Add validation helper to make it simple to maintain
 - Update README with Watch tests section
-- Change shortcut for running tests to CMD+SHIFT+I to avoid conflict with default keybinding
 
 ## [1.5.0] - 2020-10-16
 - Improve template on new test file
