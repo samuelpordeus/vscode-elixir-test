@@ -43,6 +43,10 @@ This one does the same as above, but for the entire test suite.
 
 The default keybinding is `Cmd + Shift  + I, S` (macOS) and `Ctrl + Shift + 8, S` (Linux/Windows)
 
+### Watch tests
+
+To watch tests, you need to install [mix_test_watch](https://hex.pm/packages/mix_test_watch) dependency.
+
 ## Contributing
 
 Feel free to suggest some new features or report bugs [creating a new issue](https://github.com/samuelpordeus/vscode-elixir-test/issues/new).

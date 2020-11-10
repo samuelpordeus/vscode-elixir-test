@@ -27,7 +27,7 @@ function handler(folderUri) {
   if (isTestFolder === true) {
     const testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
     const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
-    terminal.sendText(`mix test ${selectedFolder.match(testPathFilter)[1]}`);
+    terminal.sendText(`mix test.watch ${selectedFolder.match(testPathFilter)[1]}`);
     if (config.focusOnTerminalAfterTest) terminal.show();
   } else {
     vscode.window.showInformationMessage(
@@ -37,6 +37,6 @@ function handler(folderUri) {
 }
 
 module.exports = {
-  name: 'extension.elixirRunTestFolder',
+  name: 'extension.elixirWatchTestFolder',
   handler,
 };

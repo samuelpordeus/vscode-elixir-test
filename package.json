@@ -8,7 +8,7 @@
   "displayName": "Elixir Test",
   "description": "An extension with a few commands that helps you with your Elixir tests",
   "icon": "icon.png",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "engines": {
     "vscode": "^1.38.0"
   },
@@ -20,7 +20,11 @@
     "onCommand:extension.elixirRunTestFile",
     "onCommand:extension.elixirRunTestFolder",
     "onCommand:extension.elixirRunTestSuite",
-    "onCommand:extension.elixirRunTestAtCursor"
+    "onCommand:extension.elixirRunTestAtCursor",
+    "onCommand:extension.elixirWatchTestFile",
+    "onCommand:extension.elixirWatchTestFolder",
+    "onCommand:extension.elixirWatchTestAtCursor",
+    "onCommand:extension.elixirWatchTestSuite"
   ],
   "main": "./src/extension.js",
   "contributes": {
@@ -44,6 +48,22 @@
       {
         "command": "extension.elixirRunTestSuite",
         "title": "Elixir Test: Run test suite"
+      },
+      {
+        "command": "extension.elixirWatchTestFile",
+        "title": "Elixir Test: Watch all tests on file"
+      },
+      {
+        "command": "extension.elixirWatchTestFolder",
+        "title": "Elixir Test: Watch all tests in a folder"
+      },
+      {
+        "command": "extension.elixirWatchTestAtCursor",
+        "title": "Elixir Test: Watch test at cursor"
+      },
+      {
+        "command": "extension.elixirWatchTestSuite",
+        "title": "Elixir Test: Watch test suite"
       }
     ],
     "menus": {
