@@ -1,23 +1,33 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.1] = 2021-05-31
+
+- Fix jump to tests for multi-workspace projects
+
 ## [1.7.0] = 2020-11-07
+
 - Change shortcut for running tests to CMD+SHIFT+I to avoid conflict with default keybinding
 
 ## [1.6.0] = 2020-10-30
+
 - Fix command bugs for Windows users (path validation with `\\` instead of `/`)
 - Add all test commands with mix_test_watch library
 - Add validation helper to make it simple to maintain
 - Update README with Watch tests section
 
 ## [1.5.0] - 2020-10-16
+
 - Improve template on new test file
 - Improve test jump structure
 
 ## [1.4.0] - 2020-03-10
+
 - Add configuration to focus on editor after running tests
 
 ## [1.3.0] - 2019-11-12
+
 - Add Keybindings to run test commands
 - Add command to run all tests in folder
 - Add `when` on keybindings
