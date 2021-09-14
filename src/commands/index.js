@@ -3,6 +3,8 @@ const runTestAtCursor = require('./runTestAtCursor');
 const runTestFile = require('./runTestFile');
 const runTestFolder = require('./runTestFolder');
 const runTestSuite = require('./runTestSuite');
+const runFailedTests = require('./runFailedTests');
+const runStaleTests = require('./runStaleTests');
 const watchTestFile = require('./watchTestFile');
 const watchTestFolder = require('./watchTestFolder');
 const watchTestAtCursor = require('./watchTestAtCursor');
@@ -14,6 +16,8 @@ module.exports = [
   runTestFile,
   runTestFolder,
   runTestSuite,
+  runFailedTests,
+  runStaleTests,
   watchTestFile,
   watchTestFolder,
   watchTestAtCursor,
