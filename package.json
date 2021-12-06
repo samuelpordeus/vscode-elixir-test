@@ -21,6 +21,7 @@
     "onCommand:extension.elixirRunTestFolder",
     "onCommand:extension.elixirRunTestSuite",
     "onCommand:extension.elixirRunTestAtCursor",
+    "onCommand:extension.elixirRunTestIExAtCursor",
     "onCommand:extension.elixirWatchTestFile",
     "onCommand:extension.elixirWatchTestFolder",
     "onCommand:extension.elixirWatchTestAtCursor",
@@ -44,6 +45,10 @@
       {
         "command": "extension.elixirRunTestAtCursor",
         "title": "Elixir Test: Run test at cursor"
+      },
+      {
+        "command": "extension.elixirRunTestIExAtCursor",
+        "title": "Elixir Test: Run test at cursor with IEx.pry. Important: you need put `require IEx; IEx.pry` on the code"
       },
       {
         "command": "extension.elixirRunTestSuite",
@@ -86,6 +91,12 @@
         "command": "extension.elixirRunTestAtCursor",
         "key": "ctrl+shift+8 c",
         "mac": "cmd+shift+i c",
+        "when": "editorTextFocus && editorLangId == 'elixir'"
+      },
+      {
+        "command": "extension.elixirRunTestIExAtCursor",
+        "key": "ctrl+shift+8 p",
+        "mac": "cmd+shift+i p",
         "when": "editorTextFocus && editorLangId == 'elixir'"
       },
       {
