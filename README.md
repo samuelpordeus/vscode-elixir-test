@@ -29,6 +29,12 @@ This one does the same as above, but for a single test.
 
 The default keybinding is `Cmd + Shift  + I, C` (macOS) and `Ctrl + Shift + 8, C` (Linux/Windows)
 
+### Elixir Test: Run test at cursor with IEx.pry
+
+This one does the same as above, but for a single test with `IEx.pry`. Run test at cursor with IEx.pry. Important: you need put `require IEx; IEx.pry` on the code
+
+The default keybinding is `Cmd + Shift  + I, p` (macOS) and `Ctrl + Shift + 8, p` (Linux/Windows)
+
 ### Elixir Test: Run all tests in a folder
 
 This one does the same as above, but for all tests within a folder.

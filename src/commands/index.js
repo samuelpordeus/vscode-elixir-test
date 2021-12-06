@@ -1,5 +1,6 @@
 const jumpToTest = require('./jumpToTest');
 const runTestAtCursor = require('./runTestAtCursor');
+const runTestIExAtCursor = require('./runTestIExAtCursor');
 const runTestFile = require('./runTestFile');
 const runTestFolder = require('./runTestFolder');
 const runTestSuite = require('./runTestSuite');
@@ -11,6 +12,7 @@ const watchTestSuite = require('./watchTestSuite');
 module.exports = [
   jumpToTest,
   runTestAtCursor,
+  runTestIExAtCursor,
   runTestFile,
   runTestFolder,
   runTestSuite,
