@@ -131,7 +131,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "glob": "^7.1.4",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "typescript": "^3.3.1",
     "vscode-test": "^1.2.0"
   },
