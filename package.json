@@ -20,6 +20,8 @@
     "onCommand:extension.elixirRunTestFile",
     "onCommand:extension.elixirRunTestFolder",
     "onCommand:extension.elixirRunTestSuite",
+    "onCommand:extension.elixirRunFailedTests",
+    "onCommand:extension.elixirRunStaleTests",
     "onCommand:extension.elixirRunTestAtCursor",
     "onCommand:extension.elixirWatchTestFile",
     "onCommand:extension.elixirWatchTestFolder",
@@ -48,6 +50,14 @@
       {
         "command": "extension.elixirRunTestSuite",
         "title": "Elixir Test: Run test suite"
+      },
+      {
+        "command": "extension.elixirRunFailedTests",
+        "title": "Elixir Test: Run failed tests"
+      },
+      {
+        "command": "extension.elixirRunStaleTests",
+        "title": "Elixir Test: Run stale tests"
       },
       {
         "command": "extension.elixirWatchTestFile",
