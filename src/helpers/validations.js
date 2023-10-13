@@ -23,9 +23,9 @@ function isTestFolder(openedFilename) {
 
 function isCodeFile(openedFilename) {
   if (!isWindows(openedFilename)) {
-    return openedFilename.match(/(.*\/)(test|lib)(.*\/)(.*)(\.\w+)$/);
+    return openedFilename.match(/(.*\/)(test|lib)(\/)(.*)(\.\w+)$/);
   }
-  return openedFilename.match(/(.*\\)(test|lib)(.*\\)(.*)(\.\w+)$/);
+  return openedFilename.match(/(.*\\)(test|lib)(\\)(.*)(\.\w+)$/);
 }
 
 function getTestPathFilter(checkIsUmbrella, checkIsWindows) {
