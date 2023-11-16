@@ -1,4 +1,6 @@
 const vscode = require('vscode');
+const term = require('../helpers/term');
+
 const validations = require('../helpers/validations');
 
 function handler() {
@@ -18,15 +20,10 @@ function handler() {
   const isTestFile = validations.isTestFile(openedFilename);
   const isUmbrella = validations.isUmbrella(openedFilename);
 
-  const config = vscode.workspace.getConfiguration('vscode-elixir-test');
-
   if (isTestFile === true) {
     const testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
-    const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
-    terminal.sendText(
-      `mix test ${openedFilename.match(testPathFilter)[1]}:${cursorLine}`,
-    );
-    if (config.focusOnTerminalAfterTest) terminal.show();
+    const fileName = openedFilename.match(testPathFilter)[1];
+    term.run(`mix test ${fileName}:${cursorLine}`);
   } else {
     vscode.window.showInformationMessage(
       'The current file is not a test file.',

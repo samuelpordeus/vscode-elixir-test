@@ -1,6 +1,7 @@
 const vscode = require('vscode');
 const path = require('path');
 const validations = require('../helpers/validations');
+const term = require('../helpers/term');
 
 function handler(folderUri) {
   let selectedFolder;
@@ -22,13 +23,10 @@ function handler(folderUri) {
   const isTestFolder = validations.isTestFolder(selectedFolder);
   const isUmbrella = validations.isUmbrella(selectedFolder);
 
-  const config = vscode.workspace.getConfiguration('vscode-elixir-test');
-
   if (isTestFolder === true) {
     const testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
-    const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
-    terminal.sendText(`mix test.watch ${selectedFolder.match(testPathFilter)[1]}`);
-    if (config.focusOnTerminalAfterTest) terminal.show();
+    const folderName = selectedFolder.match(testPathFilter)[1];
+    term.run(`mix test.watch ${folderName}`);
   } else {
     vscode.window.showInformationMessage(
       'This folder is not a test folder.',
