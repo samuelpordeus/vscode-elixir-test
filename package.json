@@ -8,25 +8,12 @@
   "displayName": "Elixir Test",
   "description": "An extension with a few commands that helps you with your Elixir tests",
   "icon": "icon.png",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "engines": {
-    "vscode": "^1.38.0"
+    "vscode": "^1.84.0"
   },
   "categories": [
     "Other"
-  ],
-  "activationEvents": [
-    "onCommand:extension.elixirJumpToTest",
-    "onCommand:extension.elixirRunTestFile",
-    "onCommand:extension.elixirRunTestFolder",
-    "onCommand:extension.elixirRunTestSuite",
-    "onCommand:extension.elixirRunFailedTests",
-    "onCommand:extension.elixirRunStaleTests",
-    "onCommand:extension.elixirRunTestAtCursor",
-    "onCommand:extension.elixirWatchTestFile",
-    "onCommand:extension.elixirWatchTestFolder",
-    "onCommand:extension.elixirWatchTestAtCursor",
-    "onCommand:extension.elixirWatchTestSuite"
   ],
   "main": "./src/extension.js",
   "contributes": {
@@ -133,19 +120,17 @@
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
-    "@types/glob": "^7.1.1",
-    "@types/mocha": "^5.2.6",
-    "@types/node": "^10.12.21",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.4",
+    "@types/node": "^20.9.0",
     "@types/vscode": "^1.38.0",
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint": "^8.53.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "glob": "^7.1.4",
-    "mocha": "^6.1.4",
-    "typescript": "^3.3.1",
-    "vscode-test": "^1.2.0"
-  },
-  "dependencies": {
-    "vsce": "^1.67.1"
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2",
+    "@vscode/vsce": "^2.15.0",
+    "@vscode/test-electron": "^2.3.6"
   }
 }

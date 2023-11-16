@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+- Bump all dependencies to the latest versions
+- Apply linter suggestions to the project
+
 ## [1.7.1] = 2021-05-31
 
 - Fix jump to tests for multi-workspace projects

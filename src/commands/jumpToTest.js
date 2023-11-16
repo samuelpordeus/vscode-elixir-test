@@ -82,7 +82,7 @@ function handler() {
 
   const fileToOpen = vscode.workspace.asRelativePath(
     startDir + replacedLibOrTest + postDir + newFilename,
-    false
+    false,
   );
 
   vscode.workspace.findFiles(fileToOpen, '**/.elixir_ls/**').then((files) => {
