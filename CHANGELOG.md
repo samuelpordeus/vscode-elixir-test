@@ -5,6 +5,7 @@
 - Bump all dependencies to the latest versions
 - Apply linter suggestions to the project
 - Big refactoring remove duplicated code and prepare to start adding tests
+- Dynamic command loading
 
 ## [1.7.1] = 2021-05-31
 
