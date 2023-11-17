@@ -20,6 +20,10 @@ function test() {
   return mix({ command: 'test' });
 }
 
+function testCoverage() {
+  return mix({ command: 'test', flags: '--cover' });
+}
+
 function testFailed() {
   return mix({ command: 'test', flags: '--failed' });
 }
@@ -46,6 +50,7 @@ function testWatchPath(fileOrDirectory) {
 
 module.exports = {
   test,
+  testCoverage,
   testFailed,
   testStale,
   testPath,

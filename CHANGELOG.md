@@ -2,10 +2,12 @@
 
 ## [Unreleased]
 
-- Bump all dependencies to the latest versions
-- Apply linter suggestions to the project
-- Big refactoring remove duplicated code and prepare to start adding tests
-- Dynamic command loading
+- New: Added support to run test coverage 
+- New: Custom `MIX_ENV` via config file
+- Fix: Apply linter suggestions to the project
+- Fix: Big refactoring remove duplicated code and prepare to start adding tests
+- Internal: Dynamic command loading
+- Internal: Bump all dependencies to the latest versions
 
 ## [1.7.1] = 2021-05-31
 

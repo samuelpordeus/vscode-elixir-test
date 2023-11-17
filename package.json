@@ -27,6 +27,10 @@
         "title": "Elixir Test: Run all tests on file"
       },
       {
+        "command": "extension.elixirRunTestCoverage",
+        "title": "Elixir Test: Run test coverage on the project"
+      },
+      {
         "command": "extension.elixirRunTestFolder",
         "title": "Elixir Test: Run all tests in a folder"
       },
@@ -89,6 +93,12 @@
         "command": "extension.elixirRunTestFile",
         "key": "ctrl+shift+8 f",
         "mac": "cmd+shift+i f",
+        "when": "editorTextFocus && editorLangId == 'elixir'"
+      },
+      {
+        "command": "extension.elixirRunTestCoverage",
+        "key": "ctrl+shift+8 k",
+        "mac": "cmd+shift+i k",
         "when": "editorTextFocus && editorLangId == 'elixir'"
       },
       {
