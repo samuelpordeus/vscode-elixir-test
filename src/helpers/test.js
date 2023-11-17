@@ -56,14 +56,21 @@ function onTestFolder(folderUri, callback) {
     const testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
     const folderName = selectedFolder.match(testPathFilter)[1];
     const cmd = callback(folderName);
-
     term.run(cmd);
   } else {
     vscode.window.showInformationMessage('This folder is not a test folder.');
   }
 }
 
+function onRootFolder(callback) {
+  const root = vscode.workspace.workspaceFolders[0].uri.path;
+  const cmd = callback();
+  term.run(`cd ${root}`);
+  term.run(cmd);
+}
+
 module.exports = {
   onTestFile,
   onTestFolder,
+  onRootFolder,
 };
