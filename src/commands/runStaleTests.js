@@ -1,7 +1,9 @@
 const term = require('../helpers/term');
+const mix = require('../helpers/mix');
 
 function handler() {
-  term.run('mix test --stale');
+  const cmd = mix.testStale();
+  term.run(cmd);
 }
 
 module.exports = {
