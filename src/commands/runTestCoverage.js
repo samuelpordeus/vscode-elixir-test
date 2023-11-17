@@ -1,9 +1,8 @@
 const mix = require('../helpers/mix');
-const term = require('../helpers/term');
+const test = require('../helpers/test');
 
 function handler() {
-  const cmd = mix.testCoverage();
-  term.run(cmd);
+  test.onRootFolder(() => mix.testCoverage());
 }
 
 module.exports = {

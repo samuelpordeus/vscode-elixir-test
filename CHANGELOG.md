@@ -4,6 +4,7 @@
 
 - New: Added support to run test coverage 
 - New: Custom `MIX_ENV` via config file
+- Fix: `cd` the root folder to run `mix test`, `mix test.watch`...
 - Fix: Apply linter suggestions to the project
 - Fix: Big refactoring remove duplicated code and prepare to start adding tests
 - Internal: Dynamic command loading
