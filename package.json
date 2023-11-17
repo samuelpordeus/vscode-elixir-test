@@ -111,6 +111,11 @@
           "type": "boolean",
           "default": true,
           "description": "Get focus on terminal panel after test"
+        },
+        "vscode-elixir-test.mixEnv": {
+          "type": "string",
+          "default": null,
+          "description": "Set the value for the MIX_ENV env var. If null, the MIX_ENV env var will not be set"
         }
       }
     }

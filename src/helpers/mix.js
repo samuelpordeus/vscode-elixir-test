@@ -1,5 +1,14 @@
+const vscode = require('vscode');
+
 function mix({ prefix = null, command, args = null, flags = null }) {
-  const p = prefix ? `${prefix} ` : '';
+  const config = vscode.workspace.getConfiguration('vscode-elixir-test');
+  let mixEnv = '';
+
+  if (config.mixEnv !== null && config.mixEnv.length > 0) {
+    mixEnv = `MIX_ENV=${config.mixEnv}`;
+  }
+
+  const p = prefix ? `${prefix} ` : mixEnv;
   const c = command ? `${command} ` : '';
   const a = args ? `${args} ` : '';
   const f = flags ? `${flags} ` : '';
