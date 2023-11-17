@@ -1,8 +1,13 @@
 const vscode = require('vscode');
-const commands = require('./commands');
+const path = require('path');
+const fs = require('fs');
 
 function activate(context) {
-  commands.forEach((command) => {
+  const commandsDir = path.join(__dirname, '/commands');
+  const commands = fs.readdirSync(commandsDir).map((file) => `./commands/${file}`);
+
+  commands.forEach((commandEntry) => {
+    const command = require(commandEntry);
     const disposable = vscode.commands.registerCommand(
       command.name,
       command.handler,
