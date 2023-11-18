@@ -10,7 +10,7 @@ function activate(context) {
     const command = require(commandEntry);
     const disposable = vscode.commands.registerCommand(
       command.name,
-      command.handler,
+      (args) => command.handler(context, args),
     );
     context.subscriptions.push(disposable);
   });

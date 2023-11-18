@@ -43,6 +43,12 @@ This one does the same as above, but for the entire test suite.
 
 The default keybinding is `Cmd + Shift  + I, S` (macOS) and `Ctrl + Shift + 8, S` (Linux/Windows)
 
+### Elixir Test: Run last command
+
+This one will run the last test command you ran from this extension.
+
+The default keybinding is `Cmd + Shift  + I, L` (macOS) and `Ctrl + Shift + 8, L` (Linux/Windows)
+
 ### Watch tests
 
 To watch tests, you need to install [mix_test_watch](https://hex.pm/packages/mix_test_watch) dependency.

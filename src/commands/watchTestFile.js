@@ -1,8 +1,8 @@
 const test = require('../helpers/test');
 const mix = require('../helpers/mix');
 
-function handler() {
-  test.onTestFile((fileName) => mix.testWatchPath(fileName));
+function handler(context) {
+  test.onTestFile(context, (fileName) => mix.testWatchPath(fileName));
 }
 
 module.exports = {

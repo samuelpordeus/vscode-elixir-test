@@ -1,8 +1,8 @@
 const mix = require('../helpers/mix');
 const test = require('../helpers/test');
 
-function handler() {
-  test.onRootFolder(() => mix.testFailed());
+function handler(context) {
+  test.onRootFolder(context, () => mix.testFailed());
 }
 
 module.exports = {

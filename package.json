@@ -47,6 +47,10 @@
         "title": "Elixir Test: Run failed tests"
       },
       {
+        "command": "extension.elixirRunLastTestCommand",
+        "title": "Elixir Test: Run last test command"
+      },
+      {
         "command": "extension.elixirRunStaleTests",
         "title": "Elixir Test: Run stale tests"
       },
@@ -110,6 +114,12 @@
         "command": "extension.elixirRunTestSuite",
         "key": "ctrl+shift+8 s",
         "mac": "cmd+shift+i s",
+        "when": "editorTextFocus && editorLangId == 'elixir'"
+      },
+      {
+        "command": "extension.elixirRunLastTestCommand",
+        "key": "ctrl+shift+8 l",
+        "mac": "cmd+shift+i l",
         "when": "editorTextFocus && editorLangId == 'elixir'"
       }
     ],

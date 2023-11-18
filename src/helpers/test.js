@@ -3,7 +3,7 @@ const path = require('path');
 const term = require('./term');
 const validations = require('./validations');
 
-function onTestFile(callback) {
+function onTestFile(context, callback) {
   const activeFile = vscode.window.activeTextEditor;
 
   if (!activeFile) {
@@ -26,13 +26,13 @@ function onTestFile(callback) {
     const fileName = openedFilename.match(testPathFilter)[1];
     const cmd = callback(fileName, cursorLine);
 
-    term.run(cmd);
+    term.run(context, cmd);
   } else {
     vscode.window.showInformationMessage('The current file is not a test file.');
   }
 }
 
-function onTestFolder(folderUri, callback) {
+function onTestFolder(context, folderUri, callback) {
   let selectedFolder;
 
   if (folderUri) {
@@ -56,17 +56,17 @@ function onTestFolder(folderUri, callback) {
     const testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
     const folderName = selectedFolder.match(testPathFilter)[1];
     const cmd = callback(folderName);
-    term.run(cmd);
+    term.run(context, cmd);
   } else {
     vscode.window.showInformationMessage('This folder is not a test folder.');
   }
 }
 
-function onRootFolder(callback) {
+function onRootFolder(context, callback) {
   const root = vscode.workspace.workspaceFolders[0].uri.path;
   const cmd = callback();
-  term.run(`cd ${root}`);
-  term.run(cmd);
+  term.run(context, `cd ${root}`);
+  term.run(context, cmd);
 }
 
 module.exports = {
