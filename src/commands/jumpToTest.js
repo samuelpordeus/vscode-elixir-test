@@ -18,10 +18,16 @@ async function getModuleName(uriFile) {
   return moduleDefinition[1];
 }
 
+async function createNewFile(uriFile, template) {
+  const ws = new vscode.WorkspaceEdit();
+  ws.createFile(uriFile);
+  ws.insert(uriFile, new vscode.Position(0, 0), template);
+  await vscode.workspace.applyEdit(ws);
+}
+
 async function createNewTestFile(dir, file) {
   const uriDir = vscode.Uri.file(dir);
   const uriFile = vscode.Uri.file(`${dir}${file}`);
-  const ws = new vscode.WorkspaceEdit();
 
   const originalFile = vscode.window.activeTextEditor.document.fileName;
   const originalFileUri = vscode.Uri.file(originalFile);
@@ -29,23 +35,40 @@ async function createNewTestFile(dir, file) {
 
   await vscode.workspace.fs.createDirectory(uriDir);
 
-  ws.createFile(uriFile);
-  ws.insert(
-    uriFile,
-    new vscode.Position(0, 0),
-    `defmodule ${moduleName}Test do\n\tuse ExUnit.Case\n\tdoctest ${moduleName}\n\talias ${moduleName}\n\nend\n`,
-  );
-
-  await vscode.workspace.applyEdit(ws);
+  const template = `defmodule ${moduleName}Test do\n\tuse ExUnit.Case\n\tdoctest ${moduleName}\n\talias ${moduleName}\n\nend\n`;
+  await createNewFile(uriFile, template);
 }
 
-function askToCreateANewFile(dir, file) {
+async function createNewModuleFile(dir, file) {
+  const uriDir = vscode.Uri.file(dir);
+  const uriFile = vscode.Uri.file(`${dir}${file}`);
+
+  const originalFile = vscode.window.activeTextEditor.document.fileName;
+  const originalFileUri = vscode.Uri.file(originalFile);
+  const moduleName = (await getModuleName(originalFileUri)).slice(0, -4);
+
+  await vscode.workspace.fs.createDirectory(uriDir);
+
+  const template = `defmodule ${moduleName} do\n  @moduledoc """\n  Documentation for ${moduleName}.\n  """\n  \nend\n`;
+
+  await createNewFile(uriFile, template);
+}
+
+function askToCreateANewFile(dir, file, isTestFile) {
+  let msg = `Create the test file at ${dir}?`;
+  let callback = createNewTestFile;
+
+  if (isTestFile) {
+    msg = `Create the module file at ${dir}?`;
+    callback = createNewModuleFile;
+  }
+
   return showConfirmationDialog(
-    `Create the test file at ${dir}?`,
+    msg,
     'Create',
   ).then((answer) => {
     if (answer === 'Create') {
-      createNewTestFile(dir, file).then(() => {
+      callback(dir, file).then(() => {
         openFile(`${dir}${file}`);
       });
     }
@@ -87,7 +110,8 @@ function handler() {
 
   vscode.workspace.findFiles(fileToOpen, '**/.elixir_ls/**').then((files) => {
     if (!files.length) {
-      askToCreateANewFile(startDir + replacedLibOrTest + postDir, newFilename);
+      const isTestFile = validations.isTestFile(openedFilename);
+      askToCreateANewFile(startDir + replacedLibOrTest + postDir, newFilename, isTestFile);
     } else {
       const file = files[0].fsPath;
       openFile(file);

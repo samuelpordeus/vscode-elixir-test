@@ -5,6 +5,7 @@
 - New: Added support to run test coverage 
 - New: Added suppor to run the last test command
 - New: Custom `MIX_ENV` via config file
+- Improved: When jumping from a test file, the extension will allow to create the module file if it doesn't exist.
 - Fix: `cd` the root folder to run `mix test`, `mix test.watch`...
 - Fix: Apply linter suggestions to the project
 - Fix: Big refactoring remove duplicated code and prepare to start adding tests
