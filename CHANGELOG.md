@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- New: Workspace support: the extension will `cd` into the projects dir before running commands.
 - New: Added support to run test coverage 
 - New: Added suppor to run the last test command
 - New: Custom `MIX_ENV` via config file

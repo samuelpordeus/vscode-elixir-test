@@ -3,6 +3,18 @@ const path = require('path');
 const term = require('./term');
 const validations = require('./validations');
 
+function maybeEnterWorkspaceRoot(context, openedFilename) {
+  const multiRoot = vscode.workspace.workspaceFolders.length > 1;
+
+  if (multiRoot) {
+    const project = vscode.workspace.workspaceFolders.find((entry) => openedFilename.includes(entry.uri.path));
+    const projectRoot = project.uri.path;
+    term.run(context, `cd ${projectRoot}`, false);
+  }
+
+  return multiRoot;
+}
+
 function onTestFile(context, callback) {
   const activeFile = vscode.window.activeTextEditor;
 
@@ -25,6 +37,8 @@ function onTestFile(context, callback) {
     const testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
     const fileName = openedFilename.match(testPathFilter)[1];
     const cmd = callback(fileName, cursorLine);
+
+    maybeEnterWorkspaceRoot(context, openedFilename);
 
     term.run(context, cmd);
   } else {
@@ -56,6 +70,9 @@ function onTestFolder(context, folderUri, callback) {
     const testPathFilter = validations.getTestPathFilter(isUmbrella, isWindows);
     const folderName = selectedFolder.match(testPathFilter)[1];
     const cmd = callback(folderName);
+
+    maybeEnterWorkspaceRoot(context, selectedFolder);
+
     term.run(context, cmd);
   } else {
     vscode.window.showInformationMessage('This folder is not a test folder.');
@@ -63,9 +80,15 @@ function onTestFolder(context, folderUri, callback) {
 }
 
 function onRootFolder(context, callback) {
-  const root = vscode.workspace.workspaceFolders[0].uri.path;
+  const activeFile = vscode.window.activeTextEditor;
+  const openedFilename = activeFile.document.fileName;
+
+  if (maybeEnterWorkspaceRoot(context, openedFilename) === false) {
+    const root = vscode.workspace.workspaceFolders[0].uri.path;
+    term.run(context, `cd ${root}`, false);
+  }
+
   const cmd = callback();
-  term.run(context, `cd ${root}`);
   term.run(context, cmd);
 }
 
