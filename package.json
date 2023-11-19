@@ -124,18 +124,28 @@
       }
     ],
     "configuration": {
-      "title": "vscode-elixir-test",
+      "title": "Elixir Test Configuration",
       "type": "object",
       "properties": {
-        "vscode-elixir-test.focusOnTerminalAfterTest": {
-          "type": "boolean",
-          "default": true,
-          "description": "Get focus on terminal panel after test"
-        },
-        "vscode-elixir-test.mixEnv": {
-          "type": "string",
-          "default": null,
-          "description": "Set the value for the MIX_ENV env var. If null, the MIX_ENV env var will not be set"
+        "vscode-elixir-test": {
+          "type": "object",
+          "properties": {
+            "focusOnTerminalAfterTest": {
+              "type": "boolean",
+              "default": true,
+              "description": "Get focus on terminal panel after test"
+            },
+            "mixEnv": {
+              "type": "string",
+              "default": null,
+              "description": "Set the value for the MIX_ENV env var. If null, the MIX_ENV env var will not be set"
+            },
+            "beforeTest": {
+              "type": "string",
+              "default": null,
+              "description": "Command to run on terminal before running tests"
+            }
+          }
         }
       }
     }

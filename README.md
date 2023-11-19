@@ -7,6 +7,25 @@ A Visual Studio Code extension that helps you with your tests in Elixir!
 
 You can install it through the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=samuel-pordeus.elixir-test).
 
+## Options
+
+There are a few options that you can set for this extension under the `vscode-elixir-test` object:
+
+- `mixEnv`: when set, injects the `MIX_ENV` env var before mix commands. Default: `null`.
+- `focusOnTerminalAfterTest`: focus the terminal after the test is executed. Default `true`.
+- `beforeTest`: a custom command to run on the terminal before running the test command. Default `null`.
+
+Example:
+```json
+{
+  "vscode-elixir-test": {
+    "mixEnv": "test",
+    "focusOnTerminalAfterTest": true,
+    "beforeTest": "clear",
+  }
+}
+```
+
 ## Features
 
 ### Elixir Test: Jump
