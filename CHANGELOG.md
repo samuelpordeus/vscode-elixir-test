@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- New: Support for custom command before running tests.
 - New: Workspace support: the extension will `cd` into the projects dir before running commands.
 - New: Added support to run test coverage 
 - New: Added suppor to run the last test command
