@@ -3,7 +3,7 @@ const path = require('path');
 const term = require('./term');
 const validations = require('./validations');
 
-function maybeEnterWorkspaceRoot(context, openedFilename) {
+function maybeEnterProjectRoot(context, openedFilename) {
   const multiRoot = vscode.workspace.workspaceFolders.length > 1;
 
   if (multiRoot) {
@@ -38,7 +38,7 @@ function onTestFile(context, callback) {
     const fileName = openedFilename.match(testPathFilter)[1];
     const cmd = callback(fileName, cursorLine);
 
-    maybeEnterWorkspaceRoot(context, openedFilename);
+    maybeEnterProjectRoot(context, openedFilename);
 
     term.run(context, cmd);
   } else {
@@ -71,7 +71,7 @@ function onTestFolder(context, folderUri, callback) {
     const folderName = selectedFolder.match(testPathFilter)[1];
     const cmd = callback(folderName);
 
-    maybeEnterWorkspaceRoot(context, selectedFolder);
+    maybeEnterProjectRoot(context, selectedFolder);
 
     term.run(context, cmd);
   } else {
@@ -83,7 +83,7 @@ function onRootFolder(context, callback) {
   const activeFile = vscode.window.activeTextEditor;
   const openedFilename = activeFile.document.fileName;
 
-  if (maybeEnterWorkspaceRoot(context, openedFilename) === false) {
+  if (maybeEnterProjectRoot(context, openedFilename) === false) {
     const root = vscode.workspace.workspaceFolders[0].uri.path;
     term.run(context, `cd ${root}`, false);
   }
