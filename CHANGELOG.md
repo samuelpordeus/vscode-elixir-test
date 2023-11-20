@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [1.8.0] = 2023-11-20
 
 - New: Support for custom command before running tests.
 - New: Workspace support: the extension will `cd` into the projects dir before running commands.
