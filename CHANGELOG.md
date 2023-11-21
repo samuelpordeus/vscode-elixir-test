@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [1.8.1] = 2023-11-21
 
 - Fix a bug that would prevent users from using the `mixEnv` option.
 
