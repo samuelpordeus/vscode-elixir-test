@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased]
+
+- Fix a bug that would prevent users from using the `mixEnv` option.
+
 ## [1.8.0] = 2023-11-20
 
 - New: Support for custom command before running tests.
