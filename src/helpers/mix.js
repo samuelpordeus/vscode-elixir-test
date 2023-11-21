@@ -4,7 +4,7 @@ function mix({ prefix = null, command, args = null, flags = null }) {
   const config = vscode.workspace.getConfiguration('vscode-elixir-test');
   let mixEnv = '';
 
-  if (config.mixEnv !== null && config.mixEnv.length > 0) {
+  if (config.mixEnv) {
     mixEnv = `MIX_ENV=${config.mixEnv}`;
   }
 
