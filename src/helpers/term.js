@@ -2,7 +2,10 @@ const vscode = require('vscode');
 const storage = require('./storage');
 
 function terminal() {
-  return vscode.window.activeTerminal || vscode.window.createTerminal();
+  const term = vscode.window.activeTerminal || vscode.window.createTerminal();
+  // preserveFocus=true. Does not change focus to terminal.
+  term.show(true);
+  return term;
 }
 
 function run(context, cmd, store = true) {
