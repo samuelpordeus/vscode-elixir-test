@@ -48,6 +48,10 @@ function testWatchPath(fileOrDirectory) {
   return mix({ command: 'test.watch', args: fileOrDirectory });
 }
 
+function testWatchAt(fileName, cursorPosition) {
+  return mix({ command: "test.watch", args: `${fileName}:${cursorPosition}` });
+}
+
 module.exports = {
   test,
   testCoverage,
@@ -57,4 +61,5 @@ module.exports = {
   testFileAt,
   testWatch,
   testWatchPath,
+  testWatchAt
 };
