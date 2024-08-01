@@ -40,6 +40,10 @@ function testFileAt(fileName, cursorPosition) {
   return mix({ command: 'test', args: `${fileName}:${cursorPosition}` });
 }
 
+function testWatchFileAt(fileName, cursorPosition) {
+  return mix({ command: 'test.watch', args: `${fileName}:${cursorPosition}` });
+}
+
 function testWatch() {
   return mix({ command: 'test.watch' });
 }
@@ -57,4 +61,5 @@ module.exports = {
   testFileAt,
   testWatch,
   testWatchPath,
+  testWatchFileAt
 };
